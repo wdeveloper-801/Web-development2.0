@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="start">start</button>
+    <button class="stop">stop</button>
+</body>
+<script>
+    let start = document.querySelector('.start');
+    let stop = document.querySelector('.stop');
+    let interval = null;
+    function coloer_changer(params) {
+        let names_col = ["blue", "green", "red", "yellow", "pink", "purple", "black", "white", "gray", "orange"]
+        let random_color = Math.floor(Math.random() * names_col.length);
+        document.body.style.backgroundColor = names_col[random_color];
+        console.log(document.body.style.backgroundColor = names_col[random_color]);
+
+    }
+    start.addEventListener('click', function () {
+        if (interval !== null) return
+        console.log("start");
+
+
+        interval = setInterval(function () {
+            coloer_changer();
+        }, 3000)
+    });
+
+    stop.addEventListener('click', function () {
+        console.log("Stop");
+
+        clearInterval(interval);
+        interval = null;
+    })
+
+</script>
+
+</html>
