@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #8c00ff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .inner {
+        width: 360px;
+        padding: 30px 20px;
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+        text-transform: capitalize;
+    }
+
+    input[type="number"] {
+        border-radius: 12px;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+        border: 1px solid #ccc;
+        outline: none;
+        margin-bottom: 25px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="number"]:focus {
+        border-color: #8c00ff;
+    }
+
+    .form,
+    .to {
+        width: 100%;
+        font-weight: bold;
+        margin-top: 10px;
+        color: #555;
+    }
+
+    select {
+        width: 100%;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin-top: 8px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .currency-select {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .currency-select img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+
+    .btn {
+        width: 100%;
+        height: 45px;
+        border-radius: 12px;
+        background-color: #0015f9;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: capitalize;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #000dcf;
+    }
+
+    .shownum {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div class="inner">
+            <h2>currency converter</h2>
+            <input type="number" name="" id="number" placeholder="Enter amount">
+
+            <p class="form" id="from">From</p>
+            <img src="https://flagsapi.com/US/flat/64.png" alt="" width="50px" height="50px">
+            <select name="" id="fromm" class="sle1">
+                <!-- <option value="USD" selected>USD</option> -->
+            </select>
+
+            <p class="to" id="to">To</p>
+            <img id src="https://flagsapi.com/PK/flat/64.png" alt="" width="50px" height="50px">
+            <select name="" id="too" class="sle2">
+                <!-- <option value="PKR" selected>PKR</option> -->
+            </select>
+
+            <p class="shownum" id="line"> 1 USD = PKR 284 </p>
+            <button class="btn" id="btn">convert</button>
+        </div>
+    </div>
+    <script src="project2.js"></script>
+</body>
+
+</html>

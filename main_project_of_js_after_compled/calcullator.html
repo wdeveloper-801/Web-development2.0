@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: aliceblue;
+    }
+
+
+    .main {
+        position: relative;
+        max-width: 220px;
+        width: 100%;
+        padding: 10px 20px 20px;
+        background-color: #ffffff;
+        border-radius: 12px;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        font-size: 0px;
+    }
+
+    input {
+        width: 100%;
+        height: 80px;
+        border: none;
+        outline: none;
+        font-size: 30px;
+    }
+
+    button {
+        font-size: 25px;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <input type="text" id="input">
+        <div class="buttons">
+            <button id="AC" style="color: rgb(14, 209, 235)">AC</button>
+            <button id="DEL" style="color: rgb(14, 209, 235)">DEL</button>
+            <button id="opraters" style="color: rgb(14, 209, 235)">%</button>
+            <button id="opraters" style="color: rgb(14, 209, 235)">/</button>
+
+            <button id="num">7</button>
+            <button id="num">8</button>
+            <button id="num">9</button>
+            <button id="opraters" style="color: rgb(14, 209, 235)">*</button>
+
+            <button id="num">4</button>
+            <button id="num">5</button>
+            <button id="num">6</button>
+            <button id="opraters" style="color: rgb(14, 209, 235)">-</button>
+
+            <button id="num">1</button>
+            <button id="num">2</button>
+            <button id="num">3</button>
+            <button id="opraters" style="color: rgb(14, 209, 235)">+</button>
+
+            <button id="num">0</button>
+            <button id="num">00</button>
+            <button id="opraters" style="color: rgb(14, 209, 235)">.</button>
+            <button id="equal" style="color: rgb(14, 209, 235)">=</button>
+        </div>
+    </div>
+</body>
+<script>
+    let buttons = document.querySelectorAll("#num");
+    let input = document.querySelector("#input")
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            input.value += button.textContent
+            console.log(button.textContent);
+
+        })
+    })
+
+    let opraters = document.querySelectorAll("#opraters")
+
+   opraters.forEach(b => {
+        b.addEventListener("click", () => {
+            input.value += b.textContent
+            console.log(b.textContent);
+        })
+    })
+
+
+    let AC = document.querySelector(`#AC`)
+    AC.addEventListener("click", () => {
+        input.value = ""
+    })
+
+    let del = document.querySelector(`#DEL`).addEventListener("click", () => {
+        input.value = input.value.slice(0, -1)
+    })
+
+
+    let equal = document.querySelector(`#equal`).addEventListener("click", () => {
+        input.value = eval(input.value)
+    })
+    </script>
+
+</html>
