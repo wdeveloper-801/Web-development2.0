@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="city" placeholder="enter city to chrck time and date">
+    <button id="btn">check</button>
+    <p id="one" style="color: rgb(52, 10, 238);"></p>
+    <p id="two" style="color: red;"></p>
+</body>
+<script>
+    const btn = document.getElementById('btn');
+    const one = document.getElementById('one');
+    const two = document.getElementById('two');
+    
+    btn.addEventListener('click', async function () {
+        const city = document.getElementById('city').value;
+       try{ 
+        let api = await fetch(`http://worldtimeapi.org/api/timezone/Asia/${city}`)
+       if (!api.ok) {
+            throw new Error('city not found')
+        }
+       
+        let api_done = await api.json()
+        console.log(api_done);
+        let date = new Date(api_done.datetime)
+        one.innerHTML = date.toDateString();
+        two.innerHTML = date.toTimeString();
+       }catch(err){
+        alert(err.message)
+       }
+    })
+</script>
+
+</html>
