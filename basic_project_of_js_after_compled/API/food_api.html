@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="one"></p>
+    <p id="one_one"></p>
+    <p id="two"></p>
+    <p id="three"></p>
+    <button id="btn">click to find random food</button>
+</body>
+<script>
+    document.body.style.backgroundColor = "purple";
+    let btn = document.querySelector("#btn");
+    let one = document.querySelector("#one");
+    let sp_one = document.querySelector("#one_one");
+    let two = document.querySelector("#two");
+    let three = document.querySelector("#three");
+
+    btn.addEventListener("click", async function () {
+        let api = await fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+        let apiData = await api.json()
+        console.log(apiData);
+        console.log(apiData.meals[0].idMeal);
+        console.log(apiData.meals[0].strMeal);
+        console.log(apiData.meals[0].strCategory);
+        console.log(apiData.meals[0].strArea);
+
+        one.innerHTML = `id : ${apiData.meals[0].idMeal}`;
+        sp_one.innerHTML = `food name : ${apiData.meals[0].strMeal}`;
+        two.innerHTML = `food category : ${apiData.meals[0].strCategory}`;
+        three.innerHTML = `counrtry : ${apiData.meals[0].strArea}`;
+
+        one.style.color = "red";
+        one_one.style.color = "orange";
+        two.style.color = "green";
+        three.style.color = "blue";
+    })
+</script>
+
+</html>

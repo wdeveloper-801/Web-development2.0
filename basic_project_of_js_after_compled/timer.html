@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: blue;
+        }
+
+        .main {
+            width: 240px;
+            height: 230px;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            border-radius: 20px;
+        }
+
+        #display_time {
+            font-size: 50px;
+            background-color: azure;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 10px;
+            box-shadow: 1px 0px 9px 1px #20b4db;
+
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            background-color: rgb(13, 13, 212);
+            color: white;
+            font-size: 15px;
+            text-transform: capitalize;
+            border-radius: 5px;
+            margin-top: 75px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div id="display_time">00:00:00</div>
+        <DIV class="BTNN">
+            <button id="start" style="background-color: red;">start</button>
+            <button id="stop">stop</button>
+            <button id="reset" style="background-color: rgb(32, 184, 45);">reset</button>
+        </DIV>
+    </div>
+
+</body>
+<script>
+    let clock_show = document.querySelector("#display_time")
+    let start_btn = document.querySelector("#start")
+    let stop_btn = document.querySelector("#stop")
+    let reset_btn = document.querySelector("#reset")
+    let seconds = 0;
+    let timer;
+    function update_display() {
+        let hrs = Math.floor(seconds / 3600);
+        let mins = Math.floor((seconds % 3600) / 60);
+        let secs = seconds % 60;
+        clock_show.innerHTML = `${hrs}:${mins}:${secs}`;
+    }
+    start_btn.addEventListener("click", function () {
+        console.log("start");
+        timer = setInterval(() => {
+            seconds++;
+            update_display();
+        }, 1000);
+    });
+
+    stop_btn.addEventListener("click", function () {
+        console.log("stop");
+        clearInterval(timer);
+        timer = null;
+        console.log("stopped");
+        
+    });
+    reset_btn.addEventListener("click", function () {
+        console.log("reset");
+        stop();
+        seconds = 0;
+        update_display();
+    })
+
+</script>
+
+</html>

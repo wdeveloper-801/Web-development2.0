@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: relative;
+            top: 0;
+            left: -250px;
+            background-color: #111;
+            color: white;
+            transition: 0.3s ease-in-out;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 10px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+
+        .btn {
+            position: absolute;
+            top: 20px;
+            left: 290px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="btn" class="btn">☰</div>
+    
+
+    <div id="sidebar" class="sidebar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const Btn = document.getElementById('btn');
+
+        Btn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+    </script>
+
+</body>
+
+</html>

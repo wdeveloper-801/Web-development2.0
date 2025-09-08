@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+
+<body>
+    <input type="number" name="" id="number" placeholder="Enter a bill">
+    <button id="btn">click to calculate tip</button>
+    <p></p>
+</body>
+<script>
+    let number = document.getElementById('number');
+    let btn = document.getElementById('btn');
+    let p = document.querySelector('p');
+    btn.addEventListener('click', function () {
+        let bill = number.value;
+        let tip;
+        if (bill > 0 && bill <= 2000) {
+            tip = 500
+            p.innerText = ` waiter tip is ${tip}`
+            p.style.color = 'red'
+        } else if (bill > 2001 && bill <= 5000) {
+            tip = 1000
+            p.innerText = ` waiter tip is ${tip}`
+            p.style.color = 'red'
+        } else if (bill > 5001 && bill <= 10000) {
+            tip = 1500
+            p.innerText = ` waiter tip is ${tip}`
+            p.style.color = 'red'
+        } else if (bill > 10001) {
+            tip = 2000
+            p.innerText = ` waiter tip is ${tip}`
+            p.style.color = 'red'
+        } 
+    })
+</script>
+
+</html>
